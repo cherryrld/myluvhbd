@@ -1,0 +1,1903 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --paper: #dcc770;
+    --cream: #8c610a;
+    --blue: #a9c5dc;
+    --dark-blue: #57758c;
+    --ink: #42454a;
+    --soft-blue: #416f8d;
+    --line: #d9d3ca;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #be62ad;
+    color: var(--ink);
+    text-align: center;
+    padding: 20px 12px;
+}
+
+/* GENERAL PAGE DESIGN */
+
+section {
+    min-height: 100vh;
+    padding: 75px 25px;
+    margin: 20px auto;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--paper);
+    border: 1px solid #d376c5;
+    overflow: hidden;
+}
+
+/* Decorative page border */
+
+section::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+    z-index: 0;
+}
+
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(45px, 7vw, 75px);
+}
+
+h2 {
+    font-size: 38px;
+    margin: 15px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* HERO / MAGAZINE COVER */
+
+.hero {
+    background:
+        radial-gradient(circle at 10% 15%, #e4edf4 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, #d8e5ef 0 3px, transparent 4px),
+        var(--paper);
+}
+
+.hero::after {
+    content: "SPECIAL BIRTHDAY EDITION  •  MADE WITH LOVE";
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--dark-blue);
+}
+
+.hero h1 {
+    max-width: 750px;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero h1::after {
+    content: "♡";
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    color: #9bbbd2;
+    margin-top: 15px;
+}
+
+.hero p {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--dark-blue);
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+    background: var(--dark-blue);
+    color: white;
+    padding: 14px 28px;
+    border: 1px solid var(--dark-blue);
+    margin-top: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    color: var(--dark-blue);
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    opacity: .7;
+    cursor: default;
+}
+
+/* CAKE PAGE */
+
+.cake-section {
+    background: #edf3f7;
+    overflow: hidden;
+}
+
+.cake-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.cake-section > p {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.cake {
+    position: relative;
+    width: 260px;
+    height: 220px;
+    margin: 60px auto 20px;
+    z-index: 2;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 250px;
+    height: 75px;
+    background: #8ebde0;
+    border-radius: 12px 12px 20px 20px;
+    box-shadow: inset 0 -8px 0 #78a9cf;
+}
+
+.cake-middle {
+    position: absolute;
+    bottom: 95px;
+    left: 15px;
+    width: 220px;
+    height: 55px;
+    background: #b9ddf5;
+    border-radius: 12px;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 140px;
+    left: 15px;
+    width: 220px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.plate {
+    position: absolute;
+    bottom: 5px;
+    left: -15px;
+    width: 290px;
+    height: 18px;
+    background: #d2e2ed;
+    border-radius: 50%;
+}
+
+.candles {
+    position: absolute;
+    bottom: 158px;
+    left: 75px;
+    display: flex;
+    gap: 27px;
+    z-index: 3;
+}
+
+.candle {
+    position: relative;
+    width: 12px;
+    height: 48px;
+    background: #83b9df;
+    border-radius: 4px;
+}
+
+.flame {
+    position: absolute;
+    width: 15px;
+    height: 23px;
+    background: #ffcc68;
+    border-radius: 50%;
+    top: -25px;
+    left: -2px;
+    box-shadow: 0 0 15px #ffcc68;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    to {
+        transform: scale(.8);
+    }
+}
+
+.flame.out {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#wish {
+    margin-top: 25px;
+}
+
+#micStatus {
+    margin-top: 15px;
+    font-size: 12px;
+    color: var(--dark-blue);
+}
+
+#manualBtn {
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: transparent;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* FIREWORKS */
+
+#fireworks {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.firework-spark {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    animation: burst 1.1s ease-out forwards;
+}
+
+@keyframes burst {
+    to {
+        transform: translate(var(--dx), var(--dy)) scale(.1);
+        opacity: 0;
+    }
+}
+
+/* LETTER PAGE */
+
+.message-section {
+    background: var(--paper);
+}
+
+.message-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.letter {
+    width: 100%;
+    max-width: 550px;
+    background: #f8f6f0;
+    padding: 45px;
+    border: 1px solid #d8d1c6;
+    outline: 1px solid #d8d1c6;
+    outline-offset: 6px;
+    text-align: left;
+    line-height: 2;
+    box-shadow: 0 10px 25px #0000000d;
+}
+
+.letter p {
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+}
+
+.letter p:first-child {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: var(--dark-blue);
+}
+
+/* MEMORIES / SCRAPBOOK */
+
+.memories-section {
+    background: #f3f1eb;
+}
+
+.memories-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.memories-section > p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
+    max-width: 720px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.photo-card {
+    position: relative;
+    background: white;
+    padding: 12px 12px 25px;
+    border: 1px solid #e2ddd5;
+    box-shadow: 3px 5px 12px #00000018;
+    transition: transform .3s ease;
+}
+
+.photo-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) translateY(-7px);
+    z-index: 2;
+}
+
+.photo-card::before {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 18px;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: #d8e7efb8;
+    z-index: 2;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(.85);
+}
+
+.photo-card p {
+    margin-top: 14px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+/* VINTAGE MUSIC PLAYER */
+
+.music-section {
+    background: #10172f;
+    overflow: hidden;
+}
+
+.music-section h2 {
+    color: #d9eaff;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    margin-bottom: 35px;
+}
+
+.music-player {
+    width: 100%;
+    max-width: 850px;
+    background: #11152c;
+    border: 2px solid #555c7d;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px #0005;
+    text-align: left;
+}
+
+.player-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 18px 20px;
+    color: white;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.window-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.window-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.window-dots span:nth-child(1) {
+    background: #f0808d;
+}
+
+.window-dots span:nth-child(2) {
+    background: #f4cc70;
+}
+
+.window-dots span:nth-child(3) {
+    background: #8dc9a5;
+}
+
+.player-content {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    min-height: 400px;
+}
+
+.player-sidebar {
+    background: #73718f;
+    padding: 25px 18px;
+    color: white;
+    font-family: monospace;
+    overflow-wrap: anywhere;
+}
+
+.player-sidebar p {
+    color: #e1def3;
+    font-size: 11px;
+    margin: 15px 0 5px;
+}
+
+.player-sidebar span {
+    color: white;
+    font-size: 12px;
+}
+
+.cassette {
+    text-align: center;
+    font-size: 55px;
+    margin-top: 45px;
+}
+
+.song-display {
+    background: #e9dfc9;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #282431;
+}
+
+.song-icon {
+    font-size: 55px;
+    color: #77718e;
+    margin-bottom: 15px;
+}
+
+.song-display h3 {
+    font-family: monospace;
+    font-size: 25px;
+    color: #282431;
+}
+
+.song-display p {
+    color: #625c54;
+    font-family: monospace;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* ANIMATED SOUND WAVES */
+
+.sound-wave {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 45px;
+    margin-top: 25px;
+}
+
+.sound-wave span {
+    width: 4px;
+    height: 12px;
+    background: #77718e;
+    border-radius: 5px;
+}
+
+.music-player.playing .sound-wave span {
+    animation: wave .6s ease-in-out infinite alternate;
+}
+
+.sound-wave span:nth-child(2n) {
+    animation-delay: .2s;
+}
+
+.sound-wave span:nth-child(3n) {
+    animation-delay: .4s;
+}
+
+@keyframes wave {
+    from { height: 8px; }
+    to { height: 38px; }
+}
+
+/* PLAYER CONTROLS */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #11152c;
+    color: white;
+    font-family: monospace;
+}
+
+.song-name {
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+#playBtn {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: #aaa8db;
+    color: #11152c;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#progressBar {
+    flex: 1;
+    min-width: 30px;
+    accent-color: #aaa8db;
+    cursor: pointer;
+}
+
+#currentTime,
+#duration {
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+    .music-player {
+        width: 100%;
+    }
+
+    .player-content {
+        grid-template-columns: 100px minmax(0, 1fr);
+        min-height: 300px;
+    }
+
+    .player-sidebar {
+        padding: 15px 9px;
+    }
+
+    .song-display {
+        padding: 20px 13px;
+    }
+
+    .song-display h3 {
+        font-size: 17px;
+    }
+
+    .song-display p {
+        font-size: 10px;
+    }
+
+    .player-controls {
+        padding: 12px 8px;
+        gap: 7px;
+    }
+
+    .song-name {
+        display: none;
+    }
+
+    #playBtn {
+        width: 35px;
+        height: 35px;
+    }
+
+    #currentTime,
+    #duration {
+        font-size: 9px;
+    }
+}
+
+
+
+/* FOOTER */
+
+footer {
+    max-width: 1050px;
+    margin: 20px auto 0;
+    padding: 55px 20px;
+    background: #222c96;
+    border: 1px solid #1d74a7;
+    position: relative;
+}
+
+footer h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--dark-blue);
+}
+
+footer p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* MOBILE DESIGN */
+
+@media(max-width: 600px) {
+
+    body {
+        padding: 8px;
+    }
+
+    section {
+        min-height: 90vh;
+        padding: 65px 22px;
+        margin: 12px auto;
+    }
+
+    section::before {
+        inset: 9px;
+    }
+
+    h1 {
+        font-size: 43px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .hero::after {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        bottom: 30px;
+    }
+
+    .cake-section h2,
+    .message-section h2,
+    .memories-section h2,
+    .music-section h2 {
+        font-size: 40px;
+    }
+
+    .photo-gallery {
+        gap: 25px 12px;
+    }
+
+    .photo-card {
+        padding: 8px 8px 17px;
+    }
+
+    .photo-card img {
+        height: 150px;
+    }
+
+    .photo-card p {
+        font-size: 18px;
+    }
+
+    .letter {
+        padding: 25px;
+    }
+
+    .letter p {
+        font-size: 16px;
+    }
+
+    footer {
+        margin-top: 12px;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5faff;
+    color: #527795;
+    text-align: center;
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: #548bb5;
+    margin: 15px;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #c5e5fa,
+        white,
+        #d8edfc
+    );
+}
+
+.btn {
+    background: #78acd2;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #568eb9;
+}
+
+.cake-section {
+    background: #86b4e3;
+    overflow: hidden;
+}
+
+.cake {
+    position: relative;
+    width: 260px;
+    height: 220px;
+    margin: 60px auto 20px;
+    z-index: 2;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 250px;
+    height: 75px;
+    background: #8ebde0;
+    border-radius: 12px;
+}
+
+.cake-middle {
+    position: absolute;
+    bottom: 95px;
+    left: 15px;
+    width: 220px;
+    height: 55px;
+    background: #b9ddf5;
+    border-radius: 12px;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 140px;
+    left: 15px;
+    width: 220px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.plate {
+    position: absolute;
+    bottom: 5px;
+    left: -15px;
+    width: 290px;
+    height: 18px;
+    background: #c4e0f4;
+    border-radius: 50%;
+}
+
+.candles {
+    position: absolute;
+    bottom: 158px;
+    left: 75px;
+    display: flex;
+    gap: 27px;
+    z-index: 3;
+}
+
+.candle {
+    position: relative;
+    width: 12px;
+    height: 48px;
+    background: #83b9df;
+    border-radius: 4px;
+}
+
+.flame {
+    position: absolute;
+    width: 15px;
+    height: 23px;
+    background: #ffcc68;
+    border-radius: 50%;
+    top: -25px;
+    left: -2px;
+    box-shadow: 0 0 15px #ffcc68;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    to {
+        transform: scale(.8);
+    }
+}
+
+.flame.out {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#wish {
+    margin-top: 25px;
+}
+
+.message-section {
+    background: #e5f3fd;
+}
+
+.letter {
+    max-width: 500px;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 8px 25px #8ebde022;
+}
+
+.letter p {
+    margin-bottom: 20px;
+}
+
+.memories-section {
+    background: #f8fcff;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 650px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.photo-card {
+    background: white;
+    padding: 10px 10px 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px #6e9fbd25;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photo-card p {
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.music-section {
+    background: #e5f3fd;
+}
+
+audio {
+    margin-top: 25px;
+    max-width: 350px;
+    width: 100%;
+}
+
+footer {
+    padding: 40px;
+    background: #c5e5fa;
+}
+
+#fireworks {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.firework-spark {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    animation: burst 1.1s ease-out forwards;
+}
+
+@keyframes burst {
+    to {
+        transform: translate(var(--dx), var(--dy)) scale(.1);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 500px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    .photo-card img {
+        height: 150px;
+    }
+
+    .letter {
+        padding: 25px;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --paper: #fffefa;
+    --cream: #f4f0e8;
+    --blue: #a9c5dc;
+    --dark-blue: #57758c;
+    --ink: #42454a;
+    --soft-blue: #e8f0f5;
+    --line: #d9d3ca;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #dedbd5;
+    color: var(--ink);
+    text-align: center;
+    padding: 20px 12px;
+}
+
+/* GENERAL PAGE DESIGN */
+
+section {
+    min-height: 100vh;
+    padding: 75px 25px;
+    margin: 20px auto;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--paper);
+    border: 1px solid #e7e0d7;
+    overflow: hidden;
+}
+
+/* Decorative page border */
+
+section::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+    z-index: 0;
+}
+
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(45px, 7vw, 75px);
+}
+
+h2 {
+    font-size: 38px;
+    margin: 15px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* HERO / MAGAZINE COVER */
+
+.hero {
+    background:
+        radial-gradient(circle at 10% 15%, #e4edf4 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, #d8e5ef 0 3px, transparent 4px),
+        var(--paper);
+}
+
+.hero::after {
+    content: "SPECIAL BIRTHDAY EDITION  •  MADE WITH LOVE";
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--dark-blue);
+}
+
+.hero h1 {
+    max-width: 750px;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero h1::after {
+    content: "♡";
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    color: #9bbbd2;
+    margin-top: 15px;
+}
+
+.hero p {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--dark-blue);
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+    background: var(--dark-blue);
+    color: white;
+    padding: 14px 28px;
+    border: 1px solid var(--dark-blue);
+    margin-top: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    color: var(--dark-blue);
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    opacity: .7;
+    cursor: default;
+}
+
+/* CAKE PAGE */
+
+.cake-section {
+    background: #a4d9fc;
+    overflow: hidden;
+}
+
+.cake-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.cake-section > p {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.cake {
+    position: relative;
+    width: 260px;
+    height: 220px;
+    margin: 60px auto 20px;
+    z-index: 2;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 250px;
+    height: 75px;
+    background: #8ebde0;
+    border-radius: 12px 12px 20px 20px;
+    box-shadow: inset 0 -8px 0 #78a9cf;
+}
+
+.cake-middle {
+    position: absolute;
+    bottom: 95px;
+    left: 15px;
+    width: 220px;
+    height: 55px;
+    background: #b9ddf5;
+    border-radius: 12px;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 140px;
+    left: 15px;
+    width: 220px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.plate {
+    position: absolute;
+    bottom: 5px;
+    left: -15px;
+    width: 290px;
+    height: 18px;
+    background: #d2e2ed;
+    border-radius: 50%;
+}
+
+.candles {
+    position: absolute;
+    bottom: 158px;
+    left: 75px;
+    display: flex;
+    gap: 27px;
+    z-index: 3;
+}
+
+.candle {
+    position: relative;
+    width: 12px;
+    height: 48px;
+    background: #83b9df;
+    border-radius: 4px;
+}
+
+.flame {
+    position: absolute;
+    width: 15px;
+    height: 23px;
+    background: #ffcc68;
+    border-radius: 50%;
+    top: -25px;
+    left: -2px;
+    box-shadow: 0 0 15px #ffcc68;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    to {
+        transform: scale(.8);
+    }
+}
+
+.flame.out {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#wish {
+    margin-top: 25px;
+}
+
+#micStatus {
+    margin-top: 15px;
+    font-size: 12px;
+    color: var(--dark-blue);
+}
+
+#manualBtn {
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: transparent;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* FIREWORKS */
+
+#fireworks {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.firework-spark {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    animation: burst 1.1s ease-out forwards;
+}
+
+@keyframes burst {
+    to {
+        transform: translate(var(--dx), var(--dy)) scale(.1);
+        opacity: 0;
+    }
+}
+
+/* LETTER PAGE */
+
+.message-section {
+    background: var(--paper);
+}
+
+.message-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.letter {
+    width: 100%;
+    max-width: 550px;
+    background: #061735;
+    padding: 45px;
+    border: 1px solid #8bbce0;
+    outline: 1px solid #8bbce0;
+    outline-offset: 6px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 10px 30px #00000050;
+}
+.letter p {
+    color: #ffffff;
+}
+
+.letter p:first-child {
+    color: #a9d8ff;
+}
+
+/* MEMORIES / SCRAPBOOK */
+
+.memories-section {
+    background: #f3f1eb;
+}
+
+.memories-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.memories-section > p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
+    max-width: 720px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.photo-card {
+    position: relative;
+    background: white;
+    padding: 12px 12px 25px;
+    border: 1px solid #e2ddd5;
+    box-shadow: 3px 5px 12px #00000018;
+    transition: transform .3s ease;
+}
+
+.photo-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) translateY(-7px);
+    z-index: 2;
+}
+
+.photo-card::before {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 18px;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: #d8e7efb8;
+    z-index: 2;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(.85);
+}
+
+.photo-card p {
+    margin-top: 14px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+/* MUSIC PAGE */
+
+.music-section {
+    background: #e9f0f4;
+}
+
+.music-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+}
+
+.music-section audio {
+    margin-top: 30px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 0;
+}
+
+/* FOOTER */
+
+footer {
+    max-width: 1050px;
+    margin: 20px auto 0;
+    padding: 55px 20px;
+    background: #d9e6ed;
+    border: 1px solid #c9d7df;
+    position: relative;
+}
+
+footer h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--dark-blue);
+}
+
+footer p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* MOBILE DESIGN */
+
+@media(max-width: 600px) {
+
+    body {
+        padding: 8px;
+    }
+
+    section {
+        min-height: 90vh;
+        padding: 65px 22px;
+        margin: 12px auto;
+    }
+
+    section::before {
+        inset: 9px;
+    }
+
+    h1 {
+        font-size: 43px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .hero::after {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        bottom: 30px;
+    }
+
+    .cake-section h2,
+    .message-section h2,
+    .memories-section h2,
+    .music-section h2 {
+        font-size: 40px;
+    }
+
+    .photo-gallery {
+        gap: 25px 12px;
+    }
+
+    .photo-card {
+        padding: 8px 8px 17px;
+    }
+
+    .photo-card img {
+        height: 150px;
+    }
+
+    .photo-card p {
+        font-size: 18px;
+    }
+
+    .letter {
+        padding: 25px;
+    }
+
+    .letter p {
+        font-size: 16px;
+    }
+
+    footer {
+        margin-top: 12px;
+    }
+}
+You sent
+<div class="jellyfish-decoration" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+/* MIDNIGHT OCEAN BACKGROUND */
+
+body {
+    background-color: #050d29;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white 98%, transparent),
+        radial-gradient(1px 1px at 80px 90px, white 98%, transparent),
+        radial-gradient(2px 2px at 150px 160px, #b8dfff 98%, transparent),
+        radial-gradient(1px 1px at 200px 50px, white 98%, transparent),
+        radial-gradient(2px 2px at 250px 120px, white 98%, transparent);
+    background-size: 280px 200px;
+    background-attachment: fixed;
+}
+
+/* STAR PATTERN ON EACH PAGE */
+
+section {
+    background-color: #071536 !important;
+    background-image:
+        radial-gradient(1.5px 1.5px at 10% 20%, white 98%, transparent),
+        radial-gradient(2px 2px at 80% 15%, #789dbb 98%, transparent),
+        radial-gradient(1px 1px at 40% 70%, white 98%, transparent),
+        radial-gradient(2px 2px at 90% 85%, white 98%, transparent),
+        radial-gradient(1px 1px at 65% 45%, #b9dfff 98%, transparent);
+    background-size: 240px 220px;
+}
+
+/* BIRTHDAY TEXT */
+
+h1, h2 {
+    color: #e4f2ff;
+}
+
+p {
+    color: #d2e4f5;
+}
+
+/* BIG DECORATIVE STARS */
+
+.star-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star-field span {
+    position: absolute;
+    color: white;
+    font-size: 27px;
+    text-shadow: 0 0 10px #b6dcff;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+.star-field span:nth-child(1) {
+    top: 12%;
+    left: 12%;
+    font-size: 32px;
+}
+
+.star-field span:nth-child(2) {
+    top: 30%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.star-field span:nth-child(3) {
+    bottom: 20%;
+    left: 18%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+.star-field span:nth-child(4) {
+    bottom: 12%;
+    right: 20%;
+    animation-delay: .5s;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .3;
+        transform: scale(.😎 rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+}
+
+/* KEEP LETTER AND PHOTO CARDS LIGHT */
+
+.letter,
+.photo-card {
+    background: #5880a0;
+}
+
+.letter p,
+.photo-card p {
+    color: #526d85;
+}
+.letter {
+    background: #061735;
+}
+/* VINTAGE COMPUTER MUSIC PLAYER */
+
+.music-section {
+    background: #07132e !important;
+    padding: 80px 20px;
+}
+
+.music-section h2 {
+    color: #dceaff;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    margin-bottom: 35px;
+}
+
+.music-player {
+    width: 100%;
+    max-width: 750px;
+    background: #10172e;
+    border: 2px solid #424b70;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px #00000070;
+}
+
+/* TOP BAR */
+
+.player-top {
+    background: #10152a;
+    color: #d7d9ef;
+    padding: 17px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.window-dots {
+    display: flex;
+    gap: 9px;
+}
+
+.window-dots span {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+
+.window-dots span:nth-child(1) {
+    background: #e87883;
+}
+
+.window-dots span:nth-child(2) {
+    background: #e9c46a;
+}
+
+.window-dots span:nth-child(3) {
+    background: #8ebc9c;
+}
+
+/* PLAYER BODY */
+
+.player-content {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    min-height: 350px;
+}
+
+/* SIDEBAR */
+
+.player-sidebar {
+    background: #73718f;
+    color: #f0eaf5;
+    padding: 25px 18px;
+    text-align: left;
+    font-family: monospace;
+}
+
+.player-sidebar p {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #d5d4e6;
+}
+
+.player-sidebar span {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.cassette {
+    font-size: 45px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+/* SONG DISPLAY */
+
+.song-display {
+    background: #e9dfc9;
+    color: #242332;
+    padding: 45px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            #00000005 4px
+        );
+}
+
+.song-icon {
+    font-size: 55px;
+    color: #77718e;
+    margin-bottom: 15px;
+}
+
+.song-display h3 {
+    font-family: monospace;
+    font-size: clamp(18px, 4vw, 27px);
+    text-align: center;
+}
+
+.song-display p {
+    color: #686174;
+    margin-top: 12px;
+    font-family: monospace;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* SOUND WAVE */
+
+.sound-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 45px;
+    margin-top: 25px;
+}
+
+.sound-wave span {
+    width: 4px;
+    height: 12px;
+    background: #77718e;
+    border-radius: 5px;
+}
+
+.music-player.playing .sound-wave span {
+    animation: wave  .6s ease-in-out infinite alternate;
+}
+
+.sound-wave span:nth-child(2n) {
+    animation-delay: .2s;
+}
+
+.sound-wave span:nth-child(3n) {
+    animation-delay: .4s;
+}
+
+@keyframes wave {
+    from {
+        height: 8px;
+    }
+    to {
+        height: 38px;
+    }
+}
+
+/* BOTTOM CONTROLS */
+
+.player-controls {
+    background: #10152a;
+    color: #656ea1;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: monospace;
+}
+
+.song-name {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#playBtn {
+    background: #6a68be;
+    color: #10152a;
+    border: none;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    font-size: 17px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#playBtn:hover {
+    background: white;
+}
+
+#progressBar {
+    flex: 1;
+    min-width: 40px;
+    accent-color: #aaa8db;
+    cursor: pointer;
+}
+
+#currentTime,
+#duration {
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+@media(max-width: 500px) {
+    .player-content {
+        grid-template-columns: 95px 1fr;
+        min-height: 280px;
+    }
+
+    .player-sidebar {
+        padding: 20px 10px;
+    }
+
+    .song-display {
+        padding: 25px 12px;
+    }
+
+    .player-controls {
+        gap: 7px;
+        padding: 14px 10px;
+    }
+
+    .song-name {
+        display: none;
+    }
+
+    #currentTime,
+    #duration {
+        font-size: 9px;
+    }
+}
